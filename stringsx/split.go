@@ -11,4 +11,3 @@ func Splitx(s, sep string) []string {
 
 	return strings.Split(s, sep)
 }
-

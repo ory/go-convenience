@@ -1,8 +1,8 @@
 package stringslice
 
 import (
-	"testing"
 	"github.com/stretchr/testify/assert"
+	"testing"
 )
 
 func TestHas(t *testing.T) {

@@ -1,8 +1,8 @@
 package stringsx
 
 import (
-	"testing"
 	"github.com/stretchr/testify/assert"
+	"testing"
 )
 
 func TestSplitNonEmpty(t *testing.T) {

@@ -1,9 +1,9 @@
 package urlx
 
 import (
-	"testing"
-	"net/url"
 	"github.com/stretchr/testify/assert"
+	"net/url"
+	"testing"
 )
 
 func TestAppendPaths(t *testing.T) {

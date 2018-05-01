@@ -29,6 +29,6 @@ func TrimEmptyFilter(values []string, trim func(rune) bool) (ret []string) {
 }
 
 // TrimSpaceEmptyFilter applies the strings.TrimSpace function and removes all empty strings
-func TrimSpaceEmptyFilter(values []string) ([]string) {
+func TrimSpaceEmptyFilter(values []string) []string {
 	return TrimEmptyFilter(values, unicode.IsSpace)
 }
