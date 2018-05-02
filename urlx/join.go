@@ -21,3 +21,16 @@ func AppendPaths(u *url.URL, paths ...string) (ep *url.URL) {
 
 	return ep
 }
+
+// SetQuery appends the provided url values to the URL's query string.
+func SetQuery(u *url.URL, query url.Values) (ep *url.URL) {
+	ep = Copy(u)
+	q := ep.Query()
+
+	for k := range query {
+		q.Set(k, query.Get(k))
+	}
+
+	ep.RawQuery=q.Encode()
+	return ep
+}

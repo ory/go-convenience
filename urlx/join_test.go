@@ -41,3 +41,13 @@ func TestAppendPaths(t *testing.T) {
 		})
 	}
 }
+
+func TestAppendQuery(t *testing.T) {
+	u, err := url.Parse("http://localhost/home?foo=bar&baz=bar")
+	require.NoError(t, err)
+
+	assert.Equal(t, "http://localhost/home?baz=bar&foo=bar", SetQuery(u, url.Values{}).String())
+	assert.Equal(t, "http://localhost/home?bar=baz&baz=bar&foo=bar", SetQuery(u, url.Values{"bar": {"baz"}}).String())
+	assert.Equal(t, "http://localhost/home?bar=baz&baz=bar&foo=bar", SetQuery(u, url.Values{"bar": {"baz", "baz"}}).String())
+	assert.Equal(t, "http://localhost/home?baz=foo&foo=bar", SetQuery(u, url.Values{"baz": {"foo"}}).String())
+}
