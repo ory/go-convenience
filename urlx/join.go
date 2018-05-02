@@ -31,6 +31,6 @@ func SetQuery(u *url.URL, query url.Values) (ep *url.URL) {
 		q.Set(k, query.Get(k))
 	}
 
-	ep.RawQuery=q.Encode()
+	ep.RawQuery = q.Encode()
 	return ep
 }

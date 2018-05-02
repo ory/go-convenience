@@ -15,7 +15,7 @@ func GetString(values map[interface{}]interface{}, key interface{}) (string, err
 	}
 }
 
-func GetStringDefault(values map[interface{}]interface{}, key interface{}, defaultValue string) (string) {
+func GetStringDefault(values map[interface{}]interface{}, key interface{}, defaultValue string) string {
 	if s, err := GetString(values, key); err == nil {
 		return s
 	}
