@@ -1,9 +1,10 @@
 package stringslice
 
 import (
-	"github.com/stretchr/testify/assert"
 	"testing"
 	"unicode"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func TestFilter(t *testing.T) {

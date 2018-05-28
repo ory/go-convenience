@@ -1,9 +1,10 @@
 package urlx
 
 import (
-	"github.com/stretchr/testify/assert"
 	"net/url"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func TestCopy(t *testing.T) {
