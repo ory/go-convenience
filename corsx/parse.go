@@ -1,4 +1,4 @@
-package cors
+package corsx
 
 import (
 	"strconv"
