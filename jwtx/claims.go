@@ -1,9 +1,10 @@
 package jwtx
 
 import (
+	"time"
+
 	"github.com/ory/go-convenience/mapx"
 	"github.com/pkg/errors"
-	"time"
 )
 
 type Claims struct {
