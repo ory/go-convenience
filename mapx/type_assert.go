@@ -21,10 +21,20 @@ func GetString(values map[interface{}]interface{}, key interface{}) (string, err
 func GetStringSlice(values map[interface{}]interface{}, key interface{}) ([]string, error) {
 	if v, ok := values[key]; !ok {
 		return []string{}, ErrKeyDoesNotExist
-	} else if sv, ok := v.([]string); !ok {
-		return []string{}, ErrKeyCanNotBeTypeAsserted
-	} else {
+	} else if sv, ok := v.([]string); ok {
 		return sv, nil
+	} else if sv, ok := v.([]interface{}); ok {
+		vs := make([]string, len(sv))
+		for k, v := range sv {
+			if vv, ok := v.(string); !ok {
+				return []string{}, ErrKeyCanNotBeTypeAsserted
+			} else {
+				vs[k] = vv
+			}
+		}
+		return vs, nil
+	} else {
+		return []string{}, ErrKeyCanNotBeTypeAsserted
 	}
 }
 
@@ -41,6 +51,10 @@ func GetTime(values map[interface{}]interface{}, key interface{}) (time.Time, er
 	} else if sv, ok := v.(int32); ok {
 		return time.Unix(int64(sv), 0), nil
 	} else if sv, ok := v.(int); ok {
+		return time.Unix(int64(sv), 0), nil
+	} else if sv, ok := v.(float64); ok {
+		return time.Unix(int64(sv), 0), nil
+	} else if sv, ok := v.(float32); ok {
 		return time.Unix(int64(sv), 0), nil
 	}
 
