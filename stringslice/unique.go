@@ -1,4 +1,4 @@
-package stringsx
+package stringslice
 
 func Unique(i []string) []string {
 	u := make([]string, 0, len(i))
