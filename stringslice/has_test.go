@@ -18,3 +18,18 @@ func TestHasI(t *testing.T) {
 	assert.True(t, HasI([]string{"foo", "baR"}, "bar"))
 	assert.False(t, HasI([]string{"foo", "bar"}, "baz"))
 }
+
+func BenchmarkHasI(b *testing.B) {
+	var heystack = []string{
+		"apple",
+		"orange",
+		"banana",
+		"strawberry",
+		"cherry",
+		"pear",
+		"pineapple",
+	}
+	for i := 0; i < b.N; i++ {
+		HasI(heystack, "cherry")
+	}
+}
